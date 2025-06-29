@@ -4,11 +4,12 @@ import 'package:jsonplaceholder_infinite_scroll/core/constants/string_constants.
 import 'package:jsonplaceholder_infinite_scroll/core/models/api_failure_model.dart';
 
 Future<Either<ApiFailureModel, T>> baseMethodExceptions<T>(
-  Future<Either<ApiFailureModel, T>> Function() baseMethod,
-) async {
+  Future<Either<ApiFailureModel, T>> Function() baseMethod, {
+  bool checkInternet = true,
+}) async {
   try {
     bool isInternetConnected = await checkInternetConnection();
-    if (!isInternetConnected) {
+    if (!isInternetConnected && checkInternet) {
       return Left(
         ApiFailureModel(message: StringConstants.internetNotConnected),
       );

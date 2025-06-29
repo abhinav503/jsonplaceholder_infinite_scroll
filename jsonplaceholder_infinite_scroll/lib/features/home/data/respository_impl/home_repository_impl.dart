@@ -19,7 +19,7 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<ApiFailureModel, List<AlbumEntity>>> getAlbums() =>
-      baseMethodExceptions(() => getAlbumsApi());
+      baseMethodExceptions(() => getAlbumsApi(), checkInternet: false);
 
   Future<Either<ApiFailureModel, List<AlbumEntity>>> getAlbumsApi() async {
     final cachedAlbums = await homeLocalDataSource.getCachedAlbums();
@@ -38,7 +38,7 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<ApiFailureModel, List<PhotoEntity>>> getPhotos() {
-    return baseMethodExceptions(() => getPhotosApi());
+    return baseMethodExceptions(() => getPhotosApi(), checkInternet: false);
   }
 
   Future<Either<ApiFailureModel, List<PhotoEntity>>> getPhotosApi() async {

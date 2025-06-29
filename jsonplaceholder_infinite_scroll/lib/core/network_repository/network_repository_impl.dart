@@ -24,21 +24,13 @@ class NetworkRepositoryImpl implements NetworkRepository {
       );
       return handleResponse(response);
     } catch (e) {
-      throw Exception(StringConstants.apiRateLimitExceeded);
+      throw Exception(StringConstants.somethingWentWrong);
     }
   }
 
   handleResponse(Response response) {
     if (response.statusCode == 200) {
       return response;
-    } else if (response.statusCode == 429) {
-      throw Exception(StringConstants.apiRateLimitExceeded);
-    } else if (response.statusCode == 404) {
-      throw Exception(StringConstants.doesNotExist);
-    } else if (response.statusCode == 401) {
-      throw Exception(StringConstants.unauthorized);
-    } else if (response.statusCode == 403) {
-      throw Exception(StringConstants.forbidden);
     } else {
       throw Exception(StringConstants.somethingWentWrong);
     }
