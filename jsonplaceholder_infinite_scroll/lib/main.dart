@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jsonplaceholder_infinite_scroll/core/di/injection_container.dart';
+import 'package:jsonplaceholder_infinite_scroll/features/home/presentation/views/home_page.dart';
 
 void main(List<String> args) async {
   await injectionContainer();
@@ -16,7 +17,7 @@ class MainApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       builder: (context, child) => MaterialApp(
-        home: const Scaffold(),
+        home: const HomePage(),
         theme: ThemeData(textTheme: textTheme()),
       ),
     );
