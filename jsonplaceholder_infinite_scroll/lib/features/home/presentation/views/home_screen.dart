@@ -48,10 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
       albumsToAdd.add(homeBloc.allAlbums[albumIndex]);
     }
 
-    setState(() {
-      extendedAlbums.insertAll(0, albumsToAdd);
-      topPadding += count;
-    });
+    extendedAlbums.insertAll(0, albumsToAdd);
+    topPadding += count;
+    homeBloc.add(ChangeStateEvent());
   }
 
   void _addAlbumsToBottom(int count) {
@@ -63,10 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
       albumsToAdd.add(homeBloc.allAlbums[albumIndex]);
     }
 
-    setState(() {
-      extendedAlbums.addAll(albumsToAdd);
-      bottomPadding += count;
-    });
+    extendedAlbums.addAll(albumsToAdd);
+    bottomPadding += count;
+    homeBloc.add(ChangeStateEvent());
   }
 
   @override

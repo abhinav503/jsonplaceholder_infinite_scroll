@@ -8,3 +8,5 @@ class GetAlbumsEvent extends HomeEvent {}
 class GetPhotosEvent extends HomeEvent {}
 
 class ShowListViewEvent extends HomeEvent {}
+
+class ChangeStateEvent extends HomeEvent {}

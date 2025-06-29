@@ -46,5 +46,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
       );
     });
+
+    on<ChangeStateEvent>((event, emit) {
+      emit(GetPhotosState());
+    });
   }
 }
