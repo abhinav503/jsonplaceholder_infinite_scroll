@@ -25,7 +25,7 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
         jsonEncode(albumsJson),
       );
       return Right(null);
-    });
+    }, checkInternet: false);
   }
 
   @override
@@ -40,7 +40,7 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
       return Right(
         albumsList.map((json) => AlbumModel.fromJson(json)).toList(),
       );
-    });
+    }, checkInternet: false);
   }
 
   @override
@@ -54,7 +54,7 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
         jsonEncode(photosJson),
       );
       return Right(null);
-    });
+    }, checkInternet: false);
   }
 
   @override
@@ -75,7 +75,7 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
       return Right(
         photosList.map((json) => PhotoModel.fromJson(json)).toList(),
       );
-    });
+    }, checkInternet: false);
   }
 
   @override
