@@ -4,6 +4,7 @@ import 'package:jsonplaceholder_infinite_scroll/core/di/injection_container.dart
 import 'package:jsonplaceholder_infinite_scroll/features/home/presentation/views/home_page.dart';
 
 void main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
   await injectionContainer();
   runApp(const MainApp());
 }
